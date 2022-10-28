@@ -124,6 +124,7 @@ footer {
 	transform: translateX(0%);
 	background: rgba(12, 28, 21, 0.4);
 	backdrop-filter: blur(10px);
+	z-index: 1000;
 }
 .nav-items-animation {
 	animation: navItemsAnimation 1s both;
@@ -632,7 +633,7 @@ footer {
 	width: 100%;
 	height: 100%;
 	position: relative;
-	z-index: 1000;
+	z-index: 900;
 	overflow: hidden;
 	padding: 0 20px;
 	padding-bottom: 60px;
@@ -655,7 +656,6 @@ footer {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		z-index: 10000;
 
 		&__header {
 			padding: 30px 0;
@@ -816,8 +816,6 @@ footer {
 					margin: 0;
 					margin-left: 10px;
 					padding: 15px;
-
-				
 
 					p {
 						font-size: 20px;
@@ -983,8 +981,8 @@ footer {
 				&__card {
 					margin-left: 30px;
 					padding: 20px;
-					p{
-						font-size: 22px
+					p {
+						font-size: 22px;
 					}
 				}
 				&__card:first-child {
@@ -1040,10 +1038,9 @@ footer {
 					justify-content: space-evenly;
 
 					&__card {
-						// height: 200px;
+						
 						width: 400px;
-						margin-bottom: 0;
-						margin-right: 40px;
+						margin: 10px;
 						align-items: center;
 						justify-content: center;
 
