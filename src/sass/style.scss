@@ -1,0 +1,1079 @@
+@import 'colors';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100vh;
+	background-color: $cream;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+	text-align: center;
+	display: block;
+	background-color: $veryDarkGreen;
+	p {
+		padding: 40px 0;
+		color: $cream;
+	}
+}
+
+// NAWIGACJA I BURGER ICONA
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 15px;
+
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1001;
+
+	&:hover .burger-btn__bars::after,
+	&:hover .burger-btn__bars::before {
+		width: 100%;
+	}
+
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 30px;
+	}
+
+	&__bars {
+		height: 3px;
+		background-color: $veryDarkGreen;
+
+		&::after {
+			position: absolute;
+			content: '';
+			right: 0;
+			top: 13px;
+			height: 3px;
+			width: 60%;
+			background-color: $veryDarkGreen;
+			transition: width 0.3s;
+		}
+
+		&::before {
+			position: absolute;
+			content: '';
+			top: 27px;
+			width: 30%;
+			right: 0;
+			height: 3px;
+			background-color: $veryDarkGreen;
+			transition: width 0.3s;
+		}
+	}
+}
+.nav {
+	position: fixed;
+	display: flex;
+	top: 0;
+	align-items: center;
+	justify-content: center;
+	height: 70vh;
+	width: 100%;
+	transition: 0.5s cubic-bezier();
+	transform: translateX(100%);
+	z-index: 1000;
+
+	&__item {
+		position: relative;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		font-size: 32px;
+		color: $limeGreen;
+		padding: 10px 30px;
+		margin: 10px 0;
+
+		&::before {
+			position: absolute;
+			content: '';
+			height: 100%;
+			width: 3px;
+			background-color: $veryLightGreen;
+			top: 0;
+			left: 0;
+			transform: scale(0);
+			transition: transform 0.3s;
+		}
+		&:hover::before {
+			transform: scale(1);
+		}
+	}
+}
+.nav-active {
+	transform: translateX(0%);
+	background: rgba(12, 28, 21, 0.4);
+	backdrop-filter: blur(10px);
+}
+.nav-items-animation {
+	animation: navItemsAnimation 1s both;
+}
+
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+// SEKCJA HEAD - IMG / TEKST
+.header-section {
+	height: 100%;
+	width: 100%;
+}
+.site-container {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $cream;
+
+	.svg_image-wave {
+		display: none;
+	}
+
+	// cała sekcja ze zdjęciem
+	&__image {
+		width: 100%;
+		height: 70vh;
+		padding: 10px;
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		// kontener na memoji
+		&__content {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// zdjęcie memoji
+			img {
+				width: 70%;
+				z-index: 2;
+			}
+		}
+		// H1 - "hi my name is"
+		h1 {
+			padding: 5px;
+			margin-top: 25px;
+			font-size: 28px;
+			z-index: 5;
+		}
+		p {
+			z-index: 5;
+			padding-top: 5px;
+			font-size: 18px;
+		}
+		// poznajmy/ się
+		&__foot {
+			position: absolute;
+			bottom: 0;
+			padding-bottom: 30px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			p {
+				padding-bottom: 10px;
+				font-size: 18px;
+				font-weight: 400;
+				font-style: italic;
+			}
+		}
+
+		// Ikonki GitHub i Twitter
+		&__icons {
+			margin-top: 5px;
+			z-index: 900;
+			i {
+				padding: 20px;
+				font-size: 46px;
+				color: black;
+				transition: color 0.3s;
+			}
+			i:hover {
+				color: $veryDarkGreen;
+			}
+		}
+
+		// STRZAŁECZKA BOUNCE
+		&__arrow {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+
+			.arrow {
+				position: relative;
+
+				a {
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translate(-50%);
+					color: black;
+					font-size: 28px;
+					animation: bounce 1s infinite;
+					padding: 3px;
+					z-index: 100;
+				}
+
+				@keyframes bounce {
+					0% {
+						bottom: 0;
+					}
+					50% {
+						bottom: 5px;
+					}
+					100% {
+						bottom: 0%;
+					}
+				}
+			}
+		}
+	}
+
+	// itemy backgrond
+	.background-item {
+		font-size: 115px;
+		position: absolute;
+		left: 10%;
+		top: 15%;
+		z-index: 0;
+		opacity: 0.4;
+		color: $veryLightGreen;
+		animation: around 60s infinite;
+	}
+	.second-item {
+		font-size: 160px;
+		top: 65%;
+		z-index: 1;
+		left: 57%;
+		animation: back-around 40s infinite;
+	}
+	.third-item {
+		font-size: 40px;
+		left: 70%;
+		top: 20%;
+		animation: back-around 30s infinite;
+	}
+	@keyframes around {
+		from {
+			transform: rotate(0);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+	@keyframes back-around {
+		from {
+			transform: rotate(360deg);
+		}
+		to {
+			transform: rotate(0);
+		}
+	}
+
+	&__text {
+		width: 100%;
+		height: 30vh;
+		background-color: $lightGreen;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 100;
+
+		.text-element-one {
+			position: absolute;
+			left: 6%;
+			top: 7%;
+			color: $cream;
+			font-size: 72px;
+			opacity: 0.1;
+			z-index: 1;
+			animation: around 95s infinite;
+		}
+		.text-element-two {
+			position: absolute;
+			left: 72%;
+			top: 65%;
+			color: $cream;
+			font-size: 64px;
+			opacity: 0.1;
+			z-index: 1;
+			animation: back-around 90s infinite;
+		}
+
+		&__area {
+			padding: 15px;
+			overflow: hidden;
+			width: 100%;
+			text-align: center;
+			font-size: 36px;
+
+			.area__head {
+				position: relative;
+				color: $cream;
+				text-align: center;
+				letter-spacing: 2px;
+				line-height: 34px;
+				font-weight: 700;
+				margin-bottom: 15px;
+			}
+			.second-main-text {
+				display: block;
+				margin-top: 10px;
+				font-size: 28px;
+			}
+			.area__head.extra-text::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-color: $lightGreen;
+				border-left: 2px solid $limeGreen;
+				animation: animate 4s steps(12) infinite;
+			}
+
+			@keyframes animate {
+				40%,
+				60% {
+					left: 100%;
+				}
+				100% {
+					left: 0%;
+				}
+			}
+		}
+
+		&__button {
+			button {
+				padding: 10px 20px;
+				width: 100%;
+				background-color: transparent;
+				border: none;
+			}
+
+			a {
+				padding: 10px 20px;
+				background-color: $cream;
+				text-decoration: none;
+				font-size: 18px;
+				border-radius: 6px;
+				color: $veryDarkGreen;
+				cursor: pointer;
+				transition: color 0.3s, background-color 0.3s;
+			}
+			a:hover {
+				color: $lightGreen;
+				background-color: $darkCream;
+			}
+		}
+	}
+}
+
+// SEKCJA MAIN
+.second-svg {
+	display: none;
+}
+
+.about-me {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 40px 0;
+
+	&__header {
+		h1 {
+			font-size: 36px;
+			text-align: center;
+		}
+	}
+
+	.about-me-mark {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 220px;
+		color: $green;
+		opacity: 0.4;
+		animation: spinAnim 90s infinite;
+	}
+	.two {
+		left: 20%;
+		top: 10%;
+		font-size: 150px;
+	}
+
+	@keyframes spinAnim {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	&__cards {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		padding: 40px 10px;
+		&__card {
+			border: 1px solid black;
+			width: 40%;
+			padding: 10px;
+			margin-bottom: 15px;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			background: rgba(255, 255, 255, 0.27);
+			border-radius: 16px;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(6px);
+			border: 1px solid rgba(255, 255, 255, 0.32);
+
+			transition: transform 0.3s;
+
+			p {
+				font-size: 15px;
+			}
+
+			span {
+				font-weight: 500;
+			}
+		}
+
+		&__card:hover {
+			transform: scale(1.04);
+		}
+		.no-margin-bottom {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// SEKCJA SKILLS
+
+.skills {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: $cream;
+	overflow: hidden;
+	z-index: 100;
+	border-radius: 70px 70px 70px 70px;
+
+	.blob-one {
+		position: absolute;
+		top: 46px;
+		width: 50%;
+	}
+	.blob-two {
+		position: absolute;
+		top: 350px;
+		right: 20px;
+		width: 100%;
+	}
+	.blob-three {
+		position: absolute;
+		top: 720px;
+		left: 15px;
+		width: 40%;
+	}
+
+	&__content {
+		z-index: 11;
+		top: 10px;
+		background-color: $lightGreen;
+		padding: 15px;
+		&__header {
+			z-index: 11;
+			h1 {
+				text-align: center;
+				position: relative;
+				padding: 20px 0;
+				font-size: 40px;
+				color: $cream;
+			}
+		}
+		&__badges {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
+
+			.badge {
+				padding: 10px;
+				margin-bottom: 25px;
+				height: 100%;
+
+				img {
+					height: 20%;
+					width: 150px;
+					filter: grayscale(100%);
+					transition: filter 0.5s;
+				}
+				img:hover {
+					filter: grayscale(0);
+				}
+
+				&__bar {
+					width: 100%;
+					height: 15px;
+					margin-top: 10px;
+					border-radius: 6px;
+					position: relative;
+					background-color: $cream;
+
+					&__progress__dot {
+						position: absolute;
+						width: 7px;
+						height: 7px;
+						left: 112px;
+						top: 50%;
+						transform: translate(0, -50%);
+						border-radius: 6px;
+						background-color: $cream;
+					}
+					.dot-three {
+						left: 82px;
+					}
+
+					&__progress.one {
+						position: absolute;
+						width: 80%;
+						left: 2px;
+						top: 50%;
+						transform: translate(0, -50%);
+						height: 70%;
+						border-radius: 6px;
+						background-color: $veryDarkGreen;
+					}
+					&__progress.two {
+						position: absolute;
+						width: 80%;
+						left: 2px;
+						top: 50%;
+						transform: translate(0, -50%);
+						height: 70%;
+						border-radius: 6px;
+						background-color: $veryDarkGreen;
+					}
+					&__progress.three {
+						position: absolute;
+						width: 60%;
+						left: 2px;
+						top: 50%;
+						transform: translate(0, -50%);
+						height: 70%;
+						border-radius: 6px;
+						background-color: $veryDarkGreen;
+					}
+				}
+			}
+		}
+
+		&__text {
+			line-height: 26px;
+			padding: 40px;
+			span {
+				font-weight: 600;
+				letter-spacing: 1px;
+			}
+			p {
+				padding: 5px;
+				font-size: 18px;
+
+				color: $cream;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+// SEKCJA KONTAKT
+
+.contact {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1000;
+	overflow: hidden;
+	padding: 0 20px;
+	padding-bottom: 60px;
+
+	&__blob {
+		position: absolute;
+		width: 80%;
+		z-index: -1;
+	}
+	&__blob-two {
+		position: absolute;
+		width: 60%;
+		bottom: 10px;
+		right: 10px;
+		z-index: -1;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 10000;
+
+		&__header {
+			padding: 30px 0;
+			h1 {
+				font-size: 36px;
+			}
+		}
+
+		&__main {
+			display: flex;
+			flex-direction: column;
+
+			&__card {
+				padding: 15px;
+				margin-bottom: 20px;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background: rgba(255, 255, 255, 0.27);
+				border-radius: 16px;
+				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(6px);
+				border: 1px solid rgba(255, 255, 255, 0.32);
+				transition: transform 0.3s;
+				z-index: 10;
+
+				i {
+					font-size: 48px;
+					padding: 20px;
+					color: black;
+					cursor: pointer;
+					transition: color 0.3s, transform 0.3s;
+					z-index: 1000;
+				}
+				i:hover {
+					color: $veryDarkGreen;
+					transform: scale(1.1);
+					z-index: -1;
+				}
+
+				.card__link {
+					font-size: 14px;
+					text-decoration: none;
+					color: black;
+					font-weight: 400;
+					font-style: italic;
+				}
+			}
+			&__card:hover {
+				transform: scale(1.03);
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.site-container {
+		&__image {
+			// ELEMENTY NA TLE
+			.background-item {
+				font-size: 250px;
+				position: absolute;
+				left: 10%;
+				top: 3%;
+				z-index: 0;
+				opacity: 0.4;
+				color: $veryLightGreen;
+				animation: around 60s infinite;
+			}
+			.second-item {
+				font-size: 210px;
+				top: 60%;
+				z-index: 1;
+				left: 69%;
+				animation: back-around 40s infinite;
+			}
+			.third-item {
+				font-size: 80px;
+				left: 70%;
+				top: 15%;
+				animation: back-around 30s infinite;
+			}
+			// ZDJĘCIE MEMOJI
+			&__content {
+				img {
+					width: 85%;
+				}
+			}
+			// MY NAME IS + JUNIOR
+			h1 {
+				font-size: 36px;
+			}
+			p {
+				font-size: 20px;
+			}
+
+			// Ikonki GitHub i Twitter
+			&__icons {
+				i {
+					font-size: 52px;
+				}
+			}
+			&__foot {
+				p {
+					font-size: 22px;
+				}
+			}
+			// STRZAŁKA BOUNCE
+			&__arrow {
+				.arrow {
+					a {
+						font-size: 32px;
+					}
+				}
+			}
+		}
+		// SEKCJA "I WILL ...." your dream website
+		&__text {
+			// ELEMENTY ANIMOIWANE NA TLE
+			.text-element-one {
+				font-size: 180px;
+				top: 0%;
+				left: 3%;
+			}
+			.text-element-two {
+				font-size: 100px;
+				top: 51%;
+				left: 81%;
+				animation: back-around 60s infinite;
+			}
+
+			&__area {
+				font-size: 46px;
+			}
+
+			.second-main-text {
+				font-size: 32px;
+			}
+
+			&__button {
+				margin-top: 10px;
+				a {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+
+	.main-section {
+		.about-me {
+			&__cards {
+				flex-direction: row;
+				flex-wrap: nowrap;
+				padding: 40px;
+
+				&__card {
+					margin: 0;
+					margin-left: 10px;
+					padding: 15px;
+
+				
+
+					p {
+						font-size: 20px;
+					}
+				}
+				&__card:first-child {
+					margin-left: 0;
+				}
+			}
+
+			.about-me-mark {
+				top: 50px;
+				left: 290px;
+				opacity: 0.3;
+			}
+
+			.two {
+				left: 880px;
+				font-size: 120px;
+				animation: back-around 60s infinite;
+			}
+		}
+
+		.about-me__header {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.skills {
+			.blob-two {
+				width: 40%;
+				top: 0;
+			}
+			.blob-three {
+				display: none;
+			}
+
+			&__content {
+				&__badges {
+					.badge {
+						img {
+							width: 170px;
+						}
+					}
+				}
+				&__header {
+					h1 {
+						padding: 35px 0;
+					}
+				}
+			}
+		}
+		.skills__content__badges .badge__bar__progress__dot {
+			left: 128px;
+		}
+		.skills__content__badges .badge__bar .dot-three {
+			left: 94px;
+		}
+
+		.contact {
+			.contact__blob {
+				width: 60%;
+			}
+			.contact__blob-two {
+				width: 40%;
+			}
+
+			&__container {
+				&__main {
+					flex-direction: row;
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1100px) {
+	.main-section {
+		// height: 700px;
+
+		.first-svg {
+			position: absolute;
+			top: -50px;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.site-container {
+		flex-direction: row;
+		.svg_image-wave {
+			display: block;
+			position: absolute;
+			bottom: 0;
+		}
+		&__image {
+			height: 100%;
+
+			&__content {
+				img {
+					width: 100%;
+				}
+			}
+
+			h1 {
+				font-size: 44px;
+			}
+			.lets-meet {
+				font-size: 24px;
+				color: black;
+			}
+			&__arrow {
+				i {
+					color: black;
+				}
+			}
+		}
+
+		&__text {
+			height: 100%;
+			border-radius: 100px 0 0 100px;
+
+			// ELEMENTY ANIMOIWANE NA TLE
+			.text-element-one {
+				font-size: 290px;
+				top: 0%;
+				left: 14%;
+			}
+			.text-element-two {
+				font-size: 240px;
+				top: 65%;
+				left: 42%;
+				opacity: 0.045;
+				animation: back-around 90s infinite;
+			}
+
+			&__area {
+				font-size: 64px;
+			}
+
+			.second-main-text {
+				font-size: 40px;
+			}
+
+			&__button {
+				margin-top: 45px;
+				a {
+					font-size: 26px;
+				}
+			}
+		}
+	}
+
+	.main-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.about-me {
+			width: 80%;
+			padding: 50px 0;
+
+			&__cards {
+				&__card {
+					margin-left: 30px;
+					padding: 20px;
+					p{
+						font-size: 22px
+					}
+				}
+				&__card:first-child {
+					margin-left: 0;
+				}
+			}
+		}
+		&__container {
+			margin-top: 10px;
+			svg {
+				display: none;
+			}
+		}
+		.skills {
+			border-radius: 120px 120px 120px 120px;
+			h1 {
+				font-size: 48px;
+			}
+
+			img {
+				width: 80%;
+			}
+			&__content {
+				&__text {
+					z-index: 100;
+					p {
+						font-size: 22px;
+						padding: 20px;
+					}
+				}
+
+				&__badges {
+					.badge__bar {
+						margin-top: 24px;
+					}
+				}
+			}
+		}
+
+		.contact {
+			.contact__blob {
+				width: 25%;
+			}
+			.contact__blob-two {
+				width: 20%;
+				right: 15%;
+			}
+
+			&__container {
+				&__main {
+					flex-direction: row;
+					flex-wrap: wrap;
+					justify-content: space-evenly;
+
+					&__card {
+						// height: 200px;
+						width: 400px;
+						margin-bottom: 0;
+						margin-right: 40px;
+						align-items: center;
+						justify-content: center;
+
+						i {
+							font-size: 78px;
+						}
+					}
+					&__card:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.nav {
+		height: 100vh;
+		width: 50%;
+		transform: translatex(200%);
+	}
+
+	.nav-active {
+		transform: translateX(100%);
+		background: rgba(12, 28, 21, 0.4);
+		backdrop-filter: blur(10px);
+	}
+
+	.burger-btn__bars,
+	.burger-btn__bars::after,
+	.burger-btn__bars::before {
+		background-color: $veryDarkGreen;
+	}
+}
