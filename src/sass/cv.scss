@@ -42,10 +42,12 @@ footer {
 
 		&__button {
 			position: absolute;
-			top: 5px;
-			left: 5px;
+			top: 10px;
+			left: 10px;
+			padding: 5px;
+			transition: transform 0.3s;
 
-			button{
+			button {
 				border: none;
 				border-radius: 5px;
 				background-color: $darkCream;
@@ -56,6 +58,34 @@ footer {
 				font-size: 18px;
 				padding: 5px;
 			}
+		}
+
+		&__button:hover {
+			transform: scale(1.1);
+		}
+		&__button__print {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			cursor: pointer;
+			padding: 5px;
+			transition: transform 0.3s;
+
+			button {
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				background-color: $darkCream;
+			}
+
+			i {
+				color: black;
+				font-size: 18px;
+				padding: 5px;
+			}
+		}
+		&__button__print:hover {
+			transform: scale(1.1);
 		}
 
 		&__main {
@@ -236,11 +266,14 @@ footer {
 
 @media (min-width: 768px) {
 	.wrapper {
-
-		.cv__content{
-
-			&__button{
-				i{
+		.cv__content {
+			&__button {
+				i {
+					font-size: 32px;
+				}
+			}
+			&__button__print {
+				i {
 					font-size: 32px;
 				}
 			}
@@ -250,7 +283,7 @@ footer {
 			justify-content: space-evenly;
 			padding: 20px;
 			img {
-				max-width: 350px;
+				max-width: 320px;
 			}
 		}
 		.cv__content__main__interests {
@@ -261,6 +294,29 @@ footer {
 
 				padding-top: 15px;
 				padding-bottom: 25px;
+			}
+		}
+	}
+}
+
+@media print {
+	.wrapper {
+		.cv__content__main__header {
+			flex-direction: row;
+			justify-content: space-evenly;
+			padding: 20px;
+
+			img {
+				max-width: 330px;
+			}
+		}
+
+		.cv__content__main__interests {
+			.interests {
+				&__cards {
+					flex-direction: row;
+					justify-content: space-around;
+				}
 			}
 		}
 	}
