@@ -80,11 +80,46 @@ footer {
 
 			i {
 				color: black;
-				font-size: 18px;
+				font-size: 24px;
 				padding: 5px;
 			}
 		}
 		&__button__print:hover {
+			transform: scale(1.1);
+		}
+
+
+		&__button__lang{
+			position: absolute;
+			top: 10px;
+			right: 65px;
+			cursor: pointer;
+			padding: 5px;
+			transition: transform 0.3s;
+
+			button {
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				background-color: $darkCream;
+			}
+
+			i {
+				color: black;
+				font-size: 18px;
+				padding: 5px;
+			}
+			p{
+				color: black;
+				padding: 4px;
+				font-size: 12px;
+			}
+			a{
+				text-decoration: none;
+			}
+			
+		}
+		&__button__lang:hover {
 			transform: scale(1.1);
 		}
 
