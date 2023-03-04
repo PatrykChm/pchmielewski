@@ -753,6 +753,7 @@ footer {
 				border: 1px solid rgba(255, 255, 255, 0.32);
 				transition: transform 0.3s;
 				z-index: 10;
+				transition: 0.3s;
 
 				&__header {
 					h2 {
@@ -772,6 +773,8 @@ footer {
 					img {
 						width: 80%;
 						height: 100%;
+						filter: grayscale(100%);
+						transition: 1s;
 					}
 					p {
 						text-align: right;
@@ -792,7 +795,14 @@ footer {
 					}
 					img {
 						width: 8%;
+						filter: grayscale(100%);
+						transition: 0.5s;
 					}
+				}
+			}
+			.card:hover {
+				img {
+					filter: grayscale(0%);
 				}
 			}
 		}
@@ -978,6 +988,21 @@ footer {
 			}
 		}
 	}
+	.projects__container__main {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		.card {
+			width: 48%;
+			justify-content: space-between;
+
+			h2 {
+				padding: 20px 0;
+			}
+		}
+	}
 }
 @media (min-width: 1100px) {
 	.main-section {
@@ -1158,5 +1183,21 @@ footer {
 	.burger-btn__bars::after,
 	.burger-btn__bars::before {
 		background-color: $veryDarkGreen;
+	}
+
+	.projects__container__main {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		.card {
+			width: 30%;
+			justify-content: space-between;
+
+			h2 {
+				padding: 20px 0;
+			}
+		}
 	}
 }
