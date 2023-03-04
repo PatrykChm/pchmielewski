@@ -637,7 +637,7 @@ footer {
 	z-index: 900;
 	overflow: hidden;
 	padding: 0 20px;
-	padding-bottom: 60px;
+	// padding-bottom: 60px;
 
 	&__blob {
 		position: absolute;
@@ -708,6 +708,92 @@ footer {
 			}
 			&__card:hover {
 				transform: scale(1.03);
+			}
+		}
+	}
+}
+
+// SEKCJA PROJEKTY
+
+.projects {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 0 20px;
+	z-index: 899;
+	padding-bottom: 60px;
+	overflow: hidden;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		&__header {
+			padding: 30px 0;
+			h1 {
+				font-size: 36px;
+			}
+		}
+
+		&__main {
+			width: 100%;
+
+			.card {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 20px;
+				background: rgba(255, 255, 255, 0.27);
+				border-radius: 16px;
+				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(6px);
+				border: 1px solid rgba(255, 255, 255, 0.32);
+				transition: transform 0.3s;
+				z-index: 10;
+
+				&__header {
+					h2 {
+						font-size: 20px;
+						text-align: center;
+						padding: 10px 0;
+					}
+				}
+
+				&__main {
+					a {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+					}
+					img {
+						width: 80%;
+						height: 100%;
+					}
+					p {
+						text-align: right;
+						padding: 3px 0;
+						margin-right: 10%;
+						font-style: italic;
+					}
+				}
+
+				&__bottom {
+					padding: 10px 20px;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-evenly;
+					p {
+						font-size: 16px;
+					}
+					img {
+						width: 8%;
+					}
+				}
 			}
 		}
 	}
