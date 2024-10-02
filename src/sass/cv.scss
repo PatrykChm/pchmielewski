@@ -88,8 +88,7 @@ footer {
 			transform: scale(1.1);
 		}
 
-
-		&__button__lang{
+		&__button__lang {
 			position: absolute;
 			top: 10px;
 			right: 65px;
@@ -109,15 +108,14 @@ footer {
 				font-size: 18px;
 				padding: 5px;
 			}
-			p{
+			p {
 				color: black;
 				padding: 4px;
 				font-size: 12px;
 			}
-			a{
+			a {
 				text-decoration: none;
 			}
-			
 		}
 		&__button__lang:hover {
 			transform: scale(1.1);
@@ -354,8 +352,15 @@ footer {
 				}
 			}
 		}
-		button{
+		button {
 			visibility: hidden;
 		}
+	}
+}
+
+.skills__text {
+	h4 {
+		font-size: 18px;
+		margin-bottom: 5px;
 	}
 }
